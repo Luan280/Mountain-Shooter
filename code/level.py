@@ -4,7 +4,7 @@ from pygame.font import Font
 import pygame
 from code.entity import Entity
 from code.entityFactory import EntityFactory
-from code.const import WIN_HEIGHT, COLOR_WHITE
+from code.const import WIN_HEIGHT, COLOR_WHITE, MENU_OPTION
 
 
 class Level:
@@ -18,11 +18,15 @@ class Level:
         self.entity_list.append(
             EntityFactory.get_entity('Player1'))  # type: ignore
         self.timeout = 20000
+        if game_mode in (MENU_OPTION[1], MENU_OPTION[2]):
+            self.entity_list.append(
+                EntityFactory.get_entity('Player2'))  # type: ignore
 
     def run(self):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
+
         while True:
             clock.tick(60)
             for ent in self.entity_list:
