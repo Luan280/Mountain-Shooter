@@ -30,6 +30,8 @@ PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL,
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1
+EVENT_TIMEOUT = pygame.USEREVENT + 2
+
 ENTITY_SPEED = {
     'Level1Bg0': 0,
     'Level1Bg1': 1,
@@ -91,6 +93,11 @@ ENTITY_DAMAGE = {
     'Level1Bg4': 0,
     'Level1Bg5': 0,
     'Level1Bg6': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
     'Player1': 1,
     'Player1Shot': 25,
     'Player2': 1,
@@ -124,8 +131,13 @@ ENTITY_SCORE = {
     'Enemy2Shot': 0,
 }
 
+
 # S
 SPAWN_TIME = 4000
+TIMEOUT_STEP = 100 # 100 ms
+TIMEOUT_LEVEL = 20000 # 20 s
+
+
 
 # W
 WIN_WIDTH = 576

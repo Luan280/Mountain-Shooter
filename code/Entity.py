@@ -15,7 +15,7 @@ class Entity(ABC):
         self.health = ENTITY_HEALTH[self.name]
         self.damage = ENTITY_DAMAGE[self.name]
         self.last_dmg = 'None'
-        self.score = ENTITY_SCORE[self.name]
+        self.score: int | None = ENTITY_SCORE[self.name]
 
     @abstractmethod
     def move(self, ):
