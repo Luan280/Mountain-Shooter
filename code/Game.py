@@ -1,3 +1,4 @@
+import sys
 import pygame
 from code.Level import Level
 from code.Menu import Menu
@@ -33,4 +34,4 @@ class Game:
 
             elif menu_return == MENU_OPTION[4]:
                 pygame.quit()  # Close Windown
-                quit()  # End pygame
+                sys.exit()  # End pygame

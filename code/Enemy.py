@@ -1,4 +1,4 @@
-from code.Const import ENTITY_SHOT_DELAY, ENTITY_SPEED, WIN_WIDTH
+from code.Const import ENTITY_SHOT_DELAY, ENTITY_SPEED
 from code.EnemyShot import EnemyShot
 from code.Entity import Entity
 

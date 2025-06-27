@@ -22,16 +22,21 @@ class Level:
             EntityFactory.get_entity(self.name + 'Bg'))  # type: ignore
         player = EntityFactory.get_entity('Player1')
         player.score = player_score[0]  # type: ignore
-        self.entity_list.append(player) # type: ignore
+        self.entity_list.append(player)  # type: ignore
         if game_mode in (MENU_OPTION[1], MENU_OPTION[2]):
             player = EntityFactory.get_entity('Player2')
             player.score = player_score[1]  # type: ignore
-            self.entity_list.append(player) # type: ignore
-        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
+            self.entity_list.append(player)  # type: ignore
+        if self.name == 'Level2':
+            pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME - 500)
+            
+        else:
+            pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
         pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)
 
     def run(self, player_score: list[int]):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
+        pygame.mixer_music.set_volume(0.3)
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
 
@@ -66,9 +71,9 @@ class Level:
                     if self.timeout == 0:
                         for ent in self.entity_list:
                             if isinstance(ent, Player) and ent.name == "Player1":
-                                player_score[0] = ent.score # type: ignore
+                                player_score[0] = ent.score  # type: ignore
                             if isinstance(ent, Player) and ent.name == "Player2":
-                                player_score[1] = ent.score # type: ignore
+                                player_score[1] = ent.score  # type: ignore
                         return True
 
                 found_player = False
