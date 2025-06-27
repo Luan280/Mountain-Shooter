@@ -66,9 +66,9 @@ class Level:
                     if self.timeout == 0:
                         for ent in self.entity_list:
                             if isinstance(ent, Player) and ent.name == "Player1":
-                                player_score[0] = ent.score
+                                player_score[0] = ent.score # type: ignore
                             if isinstance(ent, Player) and ent.name == "Player2":
-                                player_score[1] = ent.score
+                                player_score[1] = ent.score # type: ignore
                         return True
 
                 found_player = False
